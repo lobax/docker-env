@@ -23,6 +23,7 @@ Right now, we look into two of the three most important Dockerfile instructions:
 
 ## A basic Dockerfile
 
+Using your favorite editor, create the following `Dockerfile`: 
 ```
 FROM debian:sid-slim
 # Install dependencies
@@ -42,3 +43,7 @@ RUN cd rust && \
 
 The `FROM ...` instruction defines our base image. For instance, `FROM alpine` is commonly used since alpine is a very lightweight linux distribution, which means we get a lightweight container. 
 In our case, we will `debian`, but by specifying `debian:sid-slim` we make sure that we get a lightweight version with a minimal number of packages included. The images are retreived from docker-hub, but you can setup docker to use an alternative repository. 
+
+## Building
+
+Run `docker build .` in order to build the image that we just created. The `.` specifies the context for where Docker can find a dockerfile, which can be either a PATH or a URL.  
