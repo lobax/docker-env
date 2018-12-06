@@ -47,3 +47,5 @@ In our case, we will `debian`, but by specifying `debian:sid-slim` we make sure 
 ## Building
 
 Run `docker build .` in order to build the image that we just created. The `.` specifies the context for where Docker can find a dockerfile, which can be either a PATH or a URL.  
+
+As you will see, this first build we take time, while subsequent builds will go much faster. 
