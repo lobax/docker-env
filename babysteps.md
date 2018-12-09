@@ -11,20 +11,24 @@ Right now, we look into two of the three most important Dockerfile instructions:
 
 ```
 FROM debian:sid-slim
-# Install & configure dependencies
-RUN apt-get update && apt-get install -y \
+# Install and setup dependencies
+RUN apt-get update && apt-get upgrade -y && apt-get install -y \
     git \ 
-    python2.7 \ 
+    curl \
+    python \ 
     make \
     cmake \
-    g++ && \ 
-    ln -s /usr/bin/python2.7 /usr/bin/python
+    g++
 # Clone the source
 RUN git clone https://github.com/rust-lang/rust.git
-# Build and install
+# Clone submodules
 RUN cd rust && \
-    git submodule update --init --recursive --progress && \
-    ./x.py build && sudo ./x.py install
+    git submodule update --init --recursive --progress 
+# Build 
+RUN cd rust && \
+    ./x.py build
+# Install  
+RUN cd rust && ./x.py install 
 ```
 
 ## From 
