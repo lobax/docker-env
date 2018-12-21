@@ -12,7 +12,7 @@ The following is a simple dockerfile that checkouts out, builds and installs the
 ```
 FROM debian:sid-slim
 # Install and setup dependencies
-RUN apt-get update && apt-get upgrade -y && apt-get install -y \
+RUN apt-get update && apt-get install -y \
     git \ 
     curl \
     python \ 
